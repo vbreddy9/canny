@@ -62,7 +62,7 @@ const Banner = () => {
 
     try {
       const response = await axios.post(
-        "http://canny.get-details.com/home/send-email", // Match backend port here
+        "https://canny.get-details.com/home/send-email", // Match backend port here
         {
           name: formData.name,
           email: formData.email,
