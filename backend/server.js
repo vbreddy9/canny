@@ -38,30 +38,30 @@ const transporter = nodemailer.createTransport({
 // Send Auto-Reply Email to user
 const sendAutoReply = async (userEmail, userName) => {
   const mailOptions = {
-    from: `"ONE by MSN" <admin@aurealconsulting.com>`,
+    from: `"Canny Aravindam" <admin@aurealconsulting.com>`,
     to: userEmail,
     subject: "Thank You for Your Interest!",
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; color: #333;">
-        <div style="background-color: #cb8904; color: white; padding: 15px 20px; text-align: center;">
+        <div style="background-color: #47bc5ff; color: white; padding: 15px 20px; text-align: center;">
           <h1 style="margin: 0; font-size: 22px;">Thank You for Contacting Us!</h1>
         </div>
 
         <div style="padding: 20px;">
-          <h2 style="color: #cb8904;">Hello ${userName},</h2>
-          <p>Thank you for reaching out to the <strong>ONE</strong> by MSN Team</strong>!</p>
+          <h2 style="color: #47bc5ff;">Hello ${userName},</h2>
+          <p>Thank you for reaching out to the <strong>CANNY ARAVINDAM</strong> BY Canny Group</strong>!</p>
           <p>We appreciate your interest and will get in touch with you shortly to assist you further.</p>
 
           <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;" />
 
           <p style="font-size: 14px; color: #555;">
             In the meantime, if you have any questions, feel free to call us anytime at 
-            <strong><a href="tel:+919392925831" style="color: #cb8904; text-decoration: none;">+91-9392925831</a></strong>.
+            <strong><a href="tel:+919392925831" style="color: #47bc5ff; text-decoration: none;">+91-9392925831</a></strong>.
           </p>
         </div>
 
         <div style="background-color: #f0f0f0; padding: 15px 20px; font-size: 14px; text-align: center; color: #666;">
-          <p style="margin: 0; font-style: italic;">Warm regards,<br/>ONE by MSN Team</p>
+          <p style="margin: 0; font-style: italic;">Warm regards,<br/>Team Canny Group</p>
         </div>
       </div>
     `,
@@ -73,12 +73,12 @@ const sendAutoReply = async (userEmail, userName) => {
 // Notify Admin with Form Data
 const notifyAdmin = async (formData) => {
   const mailOptions = {
-    from: `"ONE by MSN" <admin@aurealconsulting.com>`,
+    from: `"Canny Aravindam" <admin@aurealconsulting.com>`,
     to: "ayesha@aurealconsulting.com",
-    subject: "New Lead - ONE by MSN",
+    subject: "New Lead - Canny Aravindam",
     html: `
       <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-        <div style="background-color: #cb8904; color: white; padding: 15px 20px; text-align: center;">
+        <div style="background-color: #047bc5ff; color: white; padding: 15px 20px; text-align: center;">
           <h1 style="margin: 0; font-size: 24px;">New Inquiry Received</h1>
         </div>
 
@@ -109,7 +109,7 @@ const notifyAdmin = async (formData) => {
           </p>
           <p style="margin: 8px 0 0; font-style: italic; color: #555;">
             Thank you,<br/>
-            ONE by MSN Team
+            Canny Group
           </p>
         </div>
       </div>

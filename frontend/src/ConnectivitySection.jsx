@@ -1,6 +1,6 @@
 import React from "react";
 import { GraduationCap, Hospital, Network, MapPin } from "lucide-react";
-import map from "./assets/loc.webp";
+import map from "./assets/canny_loc.png";
 
 const connectivityItems = [
   {
@@ -30,10 +30,10 @@ const ConnectivitySection = () => {
     <section className="bg-white py-12 px-4 md:px-16 lg:px-24">
       <div className="text-center mb-10">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-maroon-800 text-center">
-        Seamlessly Connected, <span style={{ color: '#cb8904' }}>Ideally Positioned</span>
+        Seamlessly Connected, <span style={{ color: '#00b4e6' }}>Ideally Positioned</span>
       </h2>
       <p className="mt-4 text-gray-600 text-sm sm:text-base md:text-lg max-w-3xl mx-auto text-center">
-        ONE is located in Neopolis, Hyderabad, offering seamless access to top schools, hospitals, business hubs, and leisure destinations—bringing the perfect balance to life.
+        Canny Aravindam is located in Bowrampet, Hyderabad, offering seamless access to top schools, hospitals, business hubs, and leisure destinations—bringing the perfect balance to life.
       </p>
       </div>
 
@@ -61,9 +61,6 @@ const ConnectivitySection = () => {
             alt="Map"
             className="w-full h-auto object-cover rounded-lg"
           />
-          <button className="absolute top-4 right-4 bg-maroon-700 text-gray px-4 py-2 rounded-lg hover:bg-maroon-800 transition">
-            Navigate to ONE
-          </button>
         </div>
       </div>
     </section>

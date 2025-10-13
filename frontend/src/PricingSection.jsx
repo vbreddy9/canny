@@ -11,7 +11,7 @@ const PricingSection = () => {
   return (
     <section className="bg-white py-12 px-4 md:px-16 lg:px-24 text-center">
       <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold mb-3 text-gray-900">
-        Pricing & <span style={{ color: '#cb8904' }}>Plans</span>
+        Pricing & <span style={{ color: '#00b4e6' }}>Plans</span>
       </h2>
       <hr className="border-t-2 border-yellow-800 w-24 mx-auto mb-8" />
 
@@ -22,9 +22,14 @@ const PricingSection = () => {
           <p className="font-semibold text-black">Base Price:</p>
         </div>
         <div className="flex justify-between pt-4 text-left">
-          <p className="text-black">4 BHK</p>
-          <p className="text-black">5250 - 7460 Sq.Ft</p>
-          <p className="text-black">₹5.83 Cr*</p>
+          <p className="text-black">2 BHK</p>
+          <p className="text-black">1250 - 1285 Sq.Ft</p>
+          <p className="text-black">₹58.73 Lacs*</p>
+        </div>
+        <div className="flex justify-between pt-4 text-left">
+          <p className="text-black">3 BHK</p>
+          <p className="text-black">1505 - 2300 Sq.Ft</p>
+          <p className="text-black">₹70.71 Lacs*</p>
         </div>
        </div>
 
@@ -36,9 +41,9 @@ const PricingSection = () => {
       </div>
 
       <button
-        onClick={scrollToBanner}
-        className="mt-6 bg-green-400 text-white px-6 py-3 rounded shadow blinking-button bg-blue-600 hover:bg-blue-500 transition"
-      >
+          onClick={scrollToBanner}
+          className="mt-6 text-white px-6 py-3 rounded shadow blinking-button transition bg-gradient-to-r from-[#002954] to-[#00b4e6] hover:opacity-90"
+        >
         Price Breakup & Payment Plan
       </button>
     </section>

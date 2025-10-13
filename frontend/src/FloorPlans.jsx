@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import TowerAonUnoImg from "./assets/t_aon_uno.webp";
-import TowerEkaOdinImg from "./assets/t_eka_odin.webp";
-import TowerIsaImg from "./assets/t_isa.webp";
-import MasterPlanImg from "./assets/mplan.webp";
+import TowerAonUnoImg from "./assets/canny-1A.png";
+import TowerEkaOdinImg from "./assets/canny-2B.png";
+import TowerIsaImg from "./assets/canny-3C.png";
+import MasterPlanImg from "./assets/canny_master.png";
 
 
 const FloorPlans = () => {
-  const [activeTab, setActiveTab] = useState("TOWER AON & UNO");
+  const [activeTab, setActiveTab] = useState("TOWER A");
 
   const scrollToBanner = () => {
     const bannerSection = document.getElementById("banner-section");
@@ -15,10 +15,10 @@ const FloorPlans = () => {
     }
   };
 
-  const tabs = ["TOWER AON & UNO", "TOWER EKA & ODIN", "TOWER ISA", "Master Plan"];
+  const tabs = ["TOWER A", "TOWER B", "TOWER C", "Master Plan"];
 
   const tabContent = {
-  "TOWER AON & UNO": {
+  "TOWER A": {
     image: TowerAonUnoImg,
     highlights: [
       { title: "Spacious Layouts", desc: "Designed with openness and comfort in mind." },
@@ -26,7 +26,7 @@ const FloorPlans = () => {
       { title: "Elegant Interiors", desc: "High-end finishes and fixtures." },
     ],
   },
-  "TOWER EKA & ODIN": {
+  "TOWER B": {
     image: TowerEkaOdinImg,
     highlights: [
       { title: "Contemporary Design", desc: "Modern layouts and stunning views." },
@@ -34,7 +34,7 @@ const FloorPlans = () => {
       { title: "Balanced Lifestyle", desc: "A perfect blend of luxury and functionality." },
     ],
   },
-  "TOWER ISA": {
+  "TOWER C": {
     image: TowerIsaImg,
     highlights: [
       { title: "Elevated Living", desc: "Skyline views and ample light." },
@@ -45,7 +45,7 @@ const FloorPlans = () => {
   "Master Plan": {
     image: MasterPlanImg,
     highlights: [
-      { title: "7.7 Acres of Tranquility", desc: "Thoughtfully planned open spaces." },
+      { title: "3.05 Acres of Tranquility", desc: "Thoughtfully planned open spaces." },
       { title: "Holistic Living", desc: "Wellness, lifestyle and convenience in one place." },
       { title: "Connectivity", desc: "Seamless access across the property." },
     ],
@@ -57,10 +57,10 @@ const FloorPlans = () => {
     <section className="py-12 px-4 md:px-16 bg-white">
       <div className="text-center mb-10">
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold mb-3 text-gray-900">
-          With harmony in <span style={{ color: '#cb8904' }}>Nature</span>
+          With harmony in <span style={{ color: '#00b4e6' }}>Nature</span>
         </h2>
         <p className="text-gray-600 max-w-xl mx-auto">
-         ONE by MSN’s elegant blocks offer stunning views and world-class living.
+         Canny Aravindam’s elegant blocks offer stunning views and world-class living.
         </p>
       </div>
 

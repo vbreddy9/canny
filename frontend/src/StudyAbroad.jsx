@@ -8,12 +8,13 @@ const StudyAbroad = () => {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-        About <span style={{ color: '#cb8904' }}>Developer</span>
+        About <span style={{ color: '#00b4e6' }}>Developer</span>
         </h2>
 
         {/* Main Content */}
         <p className="text-gray-700 mt-4">
-        Established in 2021, <strong>MSN Realty</strong> harnesses the legacy of MSN's success in the pharmaceutical industry. MSN brings robust financial strength and expertise to the real estate sector.<br></br><br></br> MSN Realty is poised to develop a remarkable 20 million square feet of residential and commercial spaces over the next five years. This expansive portfolio will offer a diverse range of options, from luxury residences to thriving commercial establishments, all meticulously crafted to exceed expectations. <br></br><br></br>Our passion lies in creating exceptional spaces that transcend mere architecture. We curate homes where every detail matters-the interplay of light, the harmony of materials and the seamless fusion of form and function. Our commitment to craftsmanship and innovation ensures that each residence is not just a dwelling but an experience-an ode to refined living.
+        <strong> Canny Life Spaces</strong>, a premier real estate developer in Hyderabad since 2017, has consistently delivered excellence in residential projects. Our robust track record stems from a blend of financial acumen, engineering prowess, and architectural finesse. At Canny Life Spaces, we are driven by the belief that our paramount objective is to curate homes that contribute to a thriving community. We consider the quality of life as our most precious asset, and our commitment is to ensure its accessibility to all. Our dedication extends to crafting vibrant, sustainable communities that enhance the overall well-being of our residents. <br></br><br></br>
+        Our team at <strong> Canny Life Spaces</strong> is entrusted with upholding the highest standards in residential development and client service. We take pride in our continuous efforts to shape top-notch communities. As we look ahead, we are excited about the prospect of developing communities in strategic growth areas across Hyderabad, promising an exhilarating future for all.
         </p>
 
         

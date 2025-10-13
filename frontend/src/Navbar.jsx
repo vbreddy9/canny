@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaPhoneAlt, FaBars, FaTimes } from "react-icons/fa";
-import mlogo from "./assets/msn_logo.webp";
+import mlogo from "./assets/cannylogo.png";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -64,10 +64,9 @@ const Navbar = () => {
         <button onClick={() => scrollToSection("connectivity")} className="px-4 py-2 border border-transparent border rounded hover:border-green-700 transition duration-300">Connectivity</button>
         <button onClick={() => scrollToSection("about")} className="px-4 py-2 border border-transparent border rounded hover:border-green-700 transition duration-300">About</button>
         <a
-        href="callto:+919392925831"
-        className="blinking-button px-4 py-2 text-white rounded-full shadow-md hover:opacity-90 transition duration-300"
-        style={{ backgroundColor: '#4f1021' }}
-      >
+          href="callto:+919392925831"
+          className="blinking-button px-4 py-2 text-white rounded-full shadow-md hover:opacity-90 transition duration-300 bg-gradient-to-r from-[#00b4e6] to-[#002954]"
+        >
         Call +91-9392925831
       </a>
 
@@ -83,10 +82,9 @@ const Navbar = () => {
           <button onClick={() => scrollToSection("connectivity")}>Connectivity</button>
           <button onClick={() => scrollToSection("about")}>About</button>
           <a
-            href="callto:+919392925831"
-            className="blinking-button px-4 py-2 text-white rounded-full shadow-md hover:opacity-90 transition duration-300"
-            style={{ backgroundColor: '#4f1021' }}
-          >
+          href="callto:+919392925831"
+          className="blinking-button px-4 py-2 text-white rounded-full shadow-md hover:opacity-90 transition duration-300 bg-gradient-to-r from-[#00b4e6] to-[#002954]"
+        >
             Call +91-9392925831
           </a>
 

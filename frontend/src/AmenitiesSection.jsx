@@ -11,73 +11,18 @@ import amenity9 from "./assets/yoga.webp";
 
 // Block-wise amenities based on layout map
 const amenities = [
-  {
-    id: "tower-a",
-    label: "TOWER AON",
-    items: [
-      "Dance Room",
-      "Soccer Pool",
-      "Dart Room",
-      "Multipurpose Room",
-      "Coffee Lounge",
-      "Entertainment Lounge", "Chess Lounge", "Recording Room"
-    ],
-  },
-  {
-    id: "block-b",
-    label: "TOWER EKA",
-    items: [
-      "2 Squash Courts",
-      "Cricket Simulator",
-      "Golf Simulator",
-      "Indoor Play Zone",
-      "Pool Table", "Convenience Store"
-    ], 
-  },
-  {
-    id: "block-c",
-    label: "TOWER ISA",
-    items: [
-      "Aqua Gym",
-      "Temperature Controlled Pool",
-      "Lounge",
-      "Coffee Lounge", "Pool Table", ""
-    ],
-  },
-  {
-    id: "block-d",
-    label: "TOWER ODIN",
-    items: [
-      "Mini-Theatre",
-      "Bowling",
-      "Creche",
-      "Kids’ Learning Centre", "VR Room", "Dance Floor With Light", "Co-working station", "Science Lab", "Napping Pod", "Table Tennis", "Rock Climbing", "Play Zone"
-    ],
-  },
-  {
-    id: "block-e",
-    label: "TOWER UNO",
-    items: [
-      "Library",
-      "Story Nook",
-      "Banquet Hall with Kitchen",
-      "Pharmacy",
-      "Story Nook", "Working Pods", "Multipurpose Room", "Clinic With Emergency Room"
-    ],
-  },
- 
+   
   {
     id: "clubhouse",
-    label: "CLUBHOUSE",
+    label: "G+4 FLOORS(CLUBHOUSE) AMENITIES",
     items: [
-      "Aerobics",
-      "Banquet with Kitchen",
-      "Boxing",
-      "Badminton Courts",
-      "Ace Lounge",
+      "Multli-Purpose Hall",
+      "Swimming Pool",
+      "Indoor Badminton Court",
+      "Co-Working Space",
       "Guest Rooms",
       "Indoor Gym",
-      "Luxury Waiting Lounges", "Pantry & Store", "Queen’s Lounge", "Spa, Salon & Sauna", "Terrace Party Zone", "Zumba", "Yoga"
+      "Luxury Waiting Lounges", "Rooftop Garden", "Part Deck Area", "Spa & Salon", "Terrace Party Zone", "Yoga", "Indoor Games", "Double Height Entrance Lobby", "Prvision for Supermarket", "Kids Play Area", "Community Office", "Space for Creche"
     ],
   },
 ];
@@ -95,7 +40,7 @@ const images = [
 ];
 
 const AmenitiesSection = () => {
-  const [selected, setSelected] = useState("tower-a");
+  const [selected, setSelected] = useState("clubhouse");
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -115,8 +60,8 @@ const AmenitiesSection = () => {
     <section className="bg-neutral-50 py-12 px-4">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6">
-          70+ Awesome Amenities{" "}
-          <span style={{ color: "#cb8904" }}> Await!</span>
+          30+ Awesome Amenities{" "}
+          <span style={{ color: "#00b4e6" }}> Await!</span>
         </h2>
 
         {/* Auto-rotating images */}
@@ -138,7 +83,7 @@ const AmenitiesSection = () => {
               key={id}
               className={`px-4 py-2 rounded-lg text-sm sm:text-base font-medium transition ${
                 selected === id
-                  ? "bg-yellow-600 text-white"
+                  ? "text-white bg-gradient-to-r from-[#002954] to-[#00b4e6]"
                   : "bg-yellow-100 text-yellow-700 hover:bg-yellow-200"
               }`}
               onClick={() => setSelected(id)}
@@ -157,7 +102,7 @@ const AmenitiesSection = () => {
                 key={index}
                 className="flex items-center bg-white border border-yellow-200 shadow-sm rounded-lg px-4 py-3 gap-3"
               >
-                <i className="fas fa-check-circle text-yellow-500"></i>
+                <i className="fas fa-check-circle text-blue-500"></i>
                 <span className="text-gray-700 font-medium">{item}</span>
               </div>
             ))}
