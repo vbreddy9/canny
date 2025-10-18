@@ -3,143 +3,159 @@ const cors = require("cors");
 const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 const requestIp = require("request-ip");
+const axios = require("axios");
 
 const app = express();
 const PORT = 5000;
 
-// CORS config - Allow all origins for now (adjust origin as needed)
+// ✅ CORS setup
 app.use(
   cors({
-    origin: "*", // For dev, allow all origins; in production, specify exact URL(s)
+    origin: "*",
     methods: ["GET", "POST"],
     credentials: true,
   })
 );
 
-// Middleware
 app.use(bodyParser.json());
 app.use(requestIp.mw());
 
-// Health check route
+// ✅ Health check
 app.get("/home", (req, res) => {
-  console.log("GET /home: Health check");
   res.status(200).json("Backend working");
 });
 
-// Nodemailer transporter - use your real Gmail credentials/app password
+// ✅ Gmail transporter (App Password required)
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: "admin@aurealconsulting.com",
-    pass: "ihdt hwnd ipyx iacl", // Replace with your actual Gmail app password
+    pass: "ihdt hwnd ipyx iacl", // ⚠️ replace with Gmail App Password
   },
 });
 
-// Send Auto-Reply Email to user
+// ✅ Auto-reply to user
 const sendAutoReply = async (userEmail, userName) => {
   const mailOptions = {
     from: `"Canny Aravindam" <admin@aurealconsulting.com>`,
     to: userEmail,
     subject: "Thank You for Your Interest!",
     html: `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; color: #333;">
-        <div style="background-color: #47bc5ff; color: white; padding: 15px 20px; text-align: center;">
-          <h1 style="margin: 0; font-size: 22px;">Thank You for Contacting Us!</h1>
+      <div style="font-family: Arial; max-width:600px; margin:auto; border:1px solid #ddd; border-radius:8px; overflow:hidden;">
+        <div style="background-color:#047bc5; color:white; padding:15px 20px; text-align:center;">
+          <h1 style="margin:0; font-size:22px;">Thank You for Contacting Us!</h1>
         </div>
-
-        <div style="padding: 20px;">
-          <h2 style="color: #47bc5ff;">Hello ${userName},</h2>
-          <p>Thank you for reaching out to the <strong>CANNY ARAVINDAM</strong> BY Canny Group</strong>!</p>
-          <p>We appreciate your interest and will get in touch with you shortly to assist you further.</p>
-
-          <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;" />
-
-          <p style="font-size: 14px; color: #555;">
-            In the meantime, if you have any questions, feel free to call us anytime at 
-            <strong><a href="tel:+919392925831" style="color: #47bc5ff; text-decoration: none;">+91-9392925831</a></strong>.
-          </p>
+        <div style="padding:20px;">
+          <h2 style="color:#047bc5;">Hello ${userName},</h2>
+          <p>Thank you for reaching out to <strong>Canny Aravindam by Canny Group</strong>!</p>
+          <p>We’ll get in touch with you shortly to assist you further.</p>
+          <hr style="border:none; border-top:1px solid #ddd; margin:20px 0;" />
+          <p>If you have any questions, call us at <a href="tel:+919392925831" style="color:#047bc5;">+91-9392925831</a>.</p>
         </div>
-
-        <div style="background-color: #f0f0f0; padding: 15px 20px; font-size: 14px; text-align: center; color: #666;">
-          <p style="margin: 0; font-style: italic;">Warm regards,<br/>Team Canny Group</p>
+        <div style="background-color:#f0f0f0; padding:15px 20px; text-align:center; color:#666;">
+          <p style="margin:0; font-style:italic;">Warm regards,<br/>Team Canny Group</p>
         </div>
       </div>
     `,
   };
-
   return transporter.sendMail(mailOptions);
 };
 
-// Notify Admin with Form Data
+// ✅ Notify admin
 const notifyAdmin = async (formData) => {
   const mailOptions = {
     from: `"Canny Aravindam" <admin@aurealconsulting.com>`,
     to: "ayesha@aurealconsulting.com",
     subject: "New Lead - Canny Aravindam",
     html: `
-      <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-        <div style="background-color: #047bc5ff; color: white; padding: 15px 20px; text-align: center;">
-          <h1 style="margin: 0; font-size: 24px;">New Inquiry Received</h1>
+      <div style="font-family: Arial; max-width:600px; margin:auto; border:1px solid #ddd; border-radius:8px;">
+        <div style="background-color:#047bc5; color:white; padding:15px 20px; text-align:center;">
+          <h1 style="margin:0;">New Inquiry Received</h1>
         </div>
-
-        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
-          <tbody>
-            <tr style="background-color: #f7f7f7;">
-              <td style="padding: 12px; font-weight: bold; border: 1px solid #ddd;">Name</td>
-              <td style="padding: 12px; border: 1px solid #ddd;">${formData.name}</td>
-            </tr>
-            <tr>
-              <td style="padding: 12px; font-weight: bold; border: 1px solid #ddd;">Email</td>
-              <td style="padding: 12px; border: 1px solid #ddd;">${formData.email}</td>
-            </tr>
-            <tr style="background-color: #f7f7f7;">
-              <td style="padding: 12px; font-weight: bold; border: 1px solid #ddd;">Mobile</td>
-              <td style="padding: 12px; border: 1px solid #ddd;">${formData.mobile}</td>
-            </tr>
-            <tr>
-              <td style="padding: 12px; font-weight: bold; border: 1px solid #ddd;">IP Address</td>
-              <td style="padding: 12px; border: 1px solid #ddd;">${formData.ip}</td>
-            </tr>
-          </tbody>
+        <table style="width:100%; border-collapse:collapse;">
+          <tr><td><b>Name</b></td><td>${formData.name}</td></tr>
+          <tr><td><b>Email</b></td><td>${formData.email}</td></tr>
+          <tr><td><b>Mobile</b></td><td>${formData.mobile}</td></tr>
+          <tr><td><b>IP Address</b></td><td>${formData.ip}</td></tr>
         </table>
-
-        <div style="padding: 15px 20px; font-size: 14px; background-color: #f0f0f0; border-top: 1px solid #ddd;">
-          <p style="margin: 0;">
-            Please follow up with this lead as early as possible to provide assistance and further details.
-          </p>
-          <p style="margin: 8px 0 0; font-style: italic; color: #555;">
-            Thank you,<br/>
-            Canny Group
-          </p>
+        <div style="background-color:#f7f7f7; padding:10px 15px;">
+          <p>Please follow up with this lead as early as possible.</p>
         </div>
       </div>
     `,
   };
-
   return transporter.sendMail(mailOptions);
 };
 
-// POST route to receive form data and send emails
+// ✅ TeleCRM Integration (corrected using PHP reference)
+const pushToTeleCRM = async (lead) => {
+  const telecrmUrl =
+    "https://api.telecrm.in/enterprise/669f8deb9c0669c069b90fc3/autoupdatelead";
+  const telecrmAuth =
+    "Bearer dfc2d8a1-cca4-4226-b121-ebe4b22f6b071721799771196:b0f4940e-3a88-4941-9f34-5485c382e5d7";
+
+  // ✅ Based on working PHP payload
+  const payload = {
+    fields: {
+      name: lead.name,
+      phone: lead.mobile,
+      email: lead.email,
+      ip_address: lead.ip,
+    },
+    actions: [
+      {
+        type: "SYSTEM_NOTE",
+        text: "Lead Source: Canny Aravindam Website",
+      },
+    ],
+  };
+
+  console.log("📤 Sending to TeleCRM:", JSON.stringify(payload, null, 2));
+
+  try {
+    const response = await axios.post(telecrmUrl, payload, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: telecrmAuth,
+      },
+    });
+    console.log("✅ TeleCRM Response:", response.data);
+    return response.data;
+  } catch (error) {
+    console.error("❌ TeleCRM Error:", error.response?.data || error.message);
+    throw new Error("Failed to push lead to TeleCRM");
+  }
+};
+
+// ✅ Main route
 app.post("/home/send-email", async (req, res) => {
   const { name, email, mobile } = req.body;
   const ip = req.clientIp || "Unknown";
+  console.log("📩 Incoming Lead:", { name, email, mobile, ip });
 
-  // Basic validation
   if (!name || !email || !mobile) {
     return res.status(400).json({ error: "Name, email, and mobile are required." });
   }
 
   try {
-    // Send emails in parallel
-    await Promise.all([sendAutoReply(email, name), notifyAdmin({ name, email, mobile, ip })]);
-    console.log("Emails sent successfully");
-    res.status(200).json({ message: "Emails sent successfully" });
+    console.log("➡️ Sending Auto Reply...");
+    await sendAutoReply(email, name);
+    console.log("✅ Auto Reply Sent");
+
+    console.log("➡️ Notifying Admin...");
+    await notifyAdmin({ name, email, mobile, ip });
+    console.log("✅ Admin Notified");
+
+    console.log("➡️ Pushing to TeleCRM...");
+    await pushToTeleCRM({ name, email, mobile, ip });
+    console.log("✅ TeleCRM Lead Created");
+
+    res.status(200).json({ message: "Emails sent and lead added to TeleCRM successfully" });
   } catch (error) {
-    console.error("Email sending error:", error);
-    res.status(500).json({ error: "Failed to send emails", details: error.message });
+    console.error("❌ FULL ERROR LOG:", error);
+    res.status(500).json({ error: "Something went wrong", details: error.message });
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`✅ Server running on http://localhost:${PORT}`);
-});
+// ✅ Start server
+app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
