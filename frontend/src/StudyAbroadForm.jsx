@@ -50,7 +50,7 @@ const StudyAbroadForm = () => {
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#4f1021cc')}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#4f1021cc')}
             >
-              Starting Price: ₹58.73 Cr* Onwards
+              Starting Price: ₹58.73 Lacs* Onwards
             </a>
 
             </div>
@@ -98,7 +98,7 @@ const StudyAbroadForm = () => {
               href="tel:+919392925831"
               className="blinking-button text-white px-8 py-3 rounded-full flex items-center gap-3 shadow-md transition-all duration-300 bg-gradient-to-r from-[#002954] to-[#00b4e6] hover:opacity-90"
             >
-              Starting Price: ₹58.73 Cr* Onwards
+              Starting Price: ₹58.73 Lacs* Onwards
             </a>
             </div>
           </div>
